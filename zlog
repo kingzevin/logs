@@ -22,6 +22,7 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then
 fi
 date >> $log
 date
+echo >> $log
 echo -n "	" >> $log
 echo $* >> $log
 echo $*
