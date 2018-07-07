@@ -20,9 +20,9 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then
     echo  'zlog [string] : log the string'
     exit 0
 fi
-
 date >> $log
 date
+echo "	" >> $log
 echo $* >> $log
 echo $*
 echo >> $log
