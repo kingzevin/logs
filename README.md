@@ -179,3 +179,7 @@ test agian
 
 	8th
 
+2018年 7月 7日 星期六 15时32分37秒 CST
+
+	1.撤销git commit git reset --hard <commit_id> git push origin HEAD --force
+
