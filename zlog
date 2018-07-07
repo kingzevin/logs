@@ -1,0 +1,32 @@
+#!/bin/bash
+# usage:
+#        zlog -s|--show : show log.txt
+#        zlog -h|--help : show help info
+#        zlog [string] : log the string
+cd /Users/king.zevin/code/logs
+log=./README.md
+if [[ $1 == '' ]]; then
+    exit -1
+fi
+
+if [[ $1 == '-s' || $1 == '--show' ]]; then
+    tail -n20 $log
+    exit 0
+fi
+
+if [[ $1 == '-h' || $1 == '--help' ]]; then
+    echo  'zlog -s|--show : show log.txt'
+    echo  'zlog -h|--help : show help info'
+    echo  'zlog [string] : log the string'
+    exit 0
+fi
+
+date >> $log
+date
+echo $* >> $log
+echo $*
+echo >> $log
+echo
+
+git add zlog README.md
+git commit -m "$*"
