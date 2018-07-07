@@ -172,3 +172,6 @@ test
 	 -n
 test agian
 
+2018年 7月 7日 星期六 15时30分54秒 CST
+	test again
+
