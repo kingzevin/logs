@@ -183,3 +183,7 @@ test agian
 
 	1.撤销git commit git reset --hard <commit_id> git push origin HEAD --force
 
+2018年 7月 7日 星期六 15时33分41秒 CST
+
+	撤销git commit: git reset --hard <commit_id> git push origin HEAD --force
+
