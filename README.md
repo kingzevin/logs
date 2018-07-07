@@ -206,19 +206,13 @@ Working with Logs
 
     first trial - git
 
-2018年 7月 7日 星期六 15时20分33秒 CST
-
-    second trial - git
-
-2018年 7月 7日 星期六 15时21分20秒 CST
-
-    thrid trial - git
-
-2018年 7月 7日 星期六 15时22分23秒 CST
-
-    fourth trial - git
-
 2018年 7月 7日 星期六 15时34分53秒 CST
 
-	撤销git commit: 1.git reset --hard <commit_id>; 2.git push origin HEAD --force;
+	撤销git commit: 
+        1.git reset --hard <commit_id>; 
+        2.git push origin HEAD --force;
+
+2018年 7月 7日 星期六 17时31分52秒 CST
+
+	提取每个client的三个阶段的latency的脚本写好, 还差最后的统计,以及画图
 
