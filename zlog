@@ -1,6 +1,7 @@
 #!/bin/bash
 # usage:
-#        zlog -s|--show : show log.txt
+#        zlog -s|--show : show last 20 rows of log.txt
+#        zlog -a|--all : show all rows of log.txt
 #        zlog -h|--help : show help info
 #        zlog [string] : log the string
 cd /Users/king.zevin/code/logs
@@ -14,8 +15,14 @@ if [[ $1 == '-s' || $1 == '--show' ]]; then
     exit 0
 fi
 
+if [[ $1 == '-a' || $1 == '--all' ]]; then
+    nl $log
+    exit 0
+fi
+
 if [[ $1 == '-h' || $1 == '--help' ]]; then
-    echo  'zlog -s|--show : show log.txt'
+    echo  'zlog -s|--show : show last 20 rows of log.txt'    
+    echo  'zlog -a|--all : show all rows of log.txt'
     echo  'zlog -h|--help : show help info'
     echo  'zlog [string] : log the string'
     exit 0
