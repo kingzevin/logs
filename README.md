@@ -377,3 +377,7 @@ Working with Logs
 
 	跑了一轮1node的,但是client站这么多?不太敢相信,清除,重跑
 
+2018年 7月13日 星期五 00时07分55秒 CST
+
+	401的网线和电线布好了,我的主机和desktop也通过netgear路由器连上了,并设置了下一级的端口映射.ssh和remote desktop设置完毕
+
