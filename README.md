@@ -365,3 +365,7 @@ Working with Logs
 
 	确定原因为:.f的任务是完全一致的,导致一个文件只能create一次,所以改用自己编写脚本,通过touch命令达到类似效果.但这样的话我们的workload,不能叫create,应该叫setattr???hhh
 
+2018年 7月13日 星期五 00时06分02秒 CST
+
+	重新编写脚本,位于shWorkloads/create.sh.跑完一次./master create 4 4.
+
