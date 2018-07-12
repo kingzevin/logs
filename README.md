@@ -381,3 +381,7 @@ Working with Logs
 
 	401的网线和电线布好了,我的主机和desktop也通过netgear路由器连上了,并设置了下一级的端口映射.ssh和remote desktop设置完毕
 
+2018年 7月13日 星期五 00时08分28秒 CST
+
+	还有把g710+的键帽换到了poker2上,重新焕发生机!hhhhh
+
