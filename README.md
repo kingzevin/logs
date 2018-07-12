@@ -361,3 +361,7 @@ Working with Logs
 
 	遇到一个问题:2-1的时候,第二个client几乎没有log,没有workload,看了一下.f,发现有一行"set mode quit firstdone", 查了一下,发现是设置的结果是"to quit as soon as the first thread detects resource exhaustion.",所以决定注释掉这一行,因为我们需要的就是resource exhaustion.
 
+2018年 7月13日 星期五 00时05分40秒 CST
+
+	确定原因为:.f的任务是完全一致的,导致一个文件只能create一次,所以改用自己编写脚本,通过touch命令达到类似效果.但这样的话我们的workload,不能叫create,应该叫setattr???hhh
+
