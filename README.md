@@ -369,3 +369,7 @@ Working with Logs
 
 	重新编写脚本,位于shWorkloads/create.sh.跑完一次./master create 4 4.
 
+2018年 7月13日 星期五 00时06分22秒 CST
+
+	发现之前没有考虑touch只有在第一次的时候才会产生create的操作.所以create.sh里面的pre可以当做是rm -f
+
