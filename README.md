@@ -373,3 +373,7 @@ Working with Logs
 
 	发现之前没有考虑touch只有在第一次的时候才会产生create的操作.所以create.sh里面的pre可以当做是rm -f
 
+2018年 7月13日 星期五 00时06分30秒 CST
+
+	跑了一轮1node的,但是client站这么多?不太敢相信,清除,重跑
+
