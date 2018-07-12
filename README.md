@@ -1,4 +1,5 @@
 # logs
+
 Working with Logs
 
 2018年 04月 26日 星期四 19:58:38 CST
@@ -208,14 +209,13 @@ Working with Logs
 
 2018年 7月 7日 星期六 15时34分53秒 CST
 
-	撤销git commit: 
-        1.git reset --hard <commit_id>; 
+    撤销git commit:
+        1.git reset --hard <commit_id>;
         2.git push origin HEAD --force;
 
 2018年 7月 7日 星期六 17时31分52秒 CST
 
-	提取每个client的三个阶段的latency的脚本写好, 还差最后的统计,以及画图
-
+    提取每个client的三个阶段的latency的脚本写好, 还差最后的统计,以及画图
 
 2018年 07月 08日 星期日 15:28:11 CST
 
@@ -252,7 +252,6 @@ Working with Logs
 2018年 07月 10日 星期二 10:23:31 CST
 
     date +"%F_%H-%M"
-
 
 2018年 07月 10日 星期二 10:57:26 CST
 
@@ -356,5 +355,9 @@ Working with Logs
 
 2018年 7月11日 星期三 11时11分19秒 CST
 
-	增加了-a显示全部的选项
+    增加了-a显示全部的选项
+
+2018年 7月13日 星期五 00时05分28秒 CST
+
+	遇到一个问题:2-1的时候,第二个client几乎没有log,没有workload,看了一下.f,发现有一行"set mode quit firstdone", 查了一下,发现是设置的结果是"to quit as soon as the first thread detects resource exhaustion.",所以决定注释掉这一行,因为我们需要的就是resource exhaustion.
 
