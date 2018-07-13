@@ -16,7 +16,7 @@ if [[ $1 == '-s' || $1 == '--show' ]]; then
 fi
 
 if [[ $1 == '-a' || $1 == '--all' ]]; then
-    nl $log
+    cat -n $log
     exit 0
 fi
 
@@ -27,8 +27,8 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then
     echo  'zlog [string] : log the string'
     exit 0
 fi
-date >> $log
-date
+date +%Y/%m/%d-%H:%M >> $log
+date +%Y/%m/%d-%H:%M
 echo >> $log
 echo -n "	" >> $log
 echo $* >> $log
