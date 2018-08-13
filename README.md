@@ -393,3 +393,7 @@ Working with Logs
 
 	修改了zlog的日期格式
 
+2018/08/13-18:49
+
+	Good Paper: Object Storage - [object-storage-overview.pdf from dell](http://www.dell.com/downloads/global/products/pvaul/en/object-storage-overview.pdf)
+
