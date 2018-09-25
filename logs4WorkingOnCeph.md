@@ -1,5 +1,7 @@
 # 文豪 - 部署日志
 
+[TOC]
+
 ## 1. 节点分配
 
 gpu集群: 0,9,10,17,18
@@ -101,6 +103,33 @@ collect2: error: ld returned 1 exit status
 make[2]: *** [bin/ceph-mon] Error 1
 make[1]: *** [src/CMakeFiles/ceph-mon.dir/all] Error 2
 make: *** [all] Error 2
+
+```
+
+然后考虑leveldb版本是否过低.
+经过查找,以及样例.cc的测试,发现并没有过低啊....
+不过还是用新的版本试一下看看
+
+克隆leveldb并编译
+
+``` bash
+$ git clone https://github.com/google/leveldb.git
+$ cd leveldb
+$ mkdir -p build && cd build
+$ cmake -DCMAKE_BUILD_TYPE=Release .. && cmake --build .
+CMake Error at CMakeLists.txt:5 (cmake_minimum_required):
+  CMake 3.9 or higher is required.  You are running version 3.6.2
+
+
+-- Configuring incomplete, errors occurred!
+
+```
+
+cmake版本又太低了,更新吧
+``` bash
+$ wget https://cmake.org/files/v3.12/cmake-3.12.0.tar.gz
+$ tar xf cmake-3.12.0.tar.gz
+$ ./bootstrap
 
 ```
 
