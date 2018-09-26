@@ -105,8 +105,31 @@ make[1]: *** [src/CMakeFiles/ceph-mon.dir/all] Error 2
 make: *** [all] Error 2
 
 ```
+报的错误跟之前`make -j`不一样了哎.这个报的是levelDB的错误.
+之后重新跑`./install-deps.sh`之后:
 
-然后考虑leveldb版本是否过低.
+``` text
+$ ./install-deps.sh  1>../outputDeps 2>../outputDepsE
+
+$ cat ../outputDepsE
+./install-deps.sh: line 307: virtualenv: command not found
+./install-deps.sh: line 308: /home/zevin/ceph-src/ceph/install-deps-python2.7_tmp/bin/pip: No such file or directory
+./install-deps.sh: line 309: /home/zevin/ceph-src/ceph/install-deps-python2.7_tmp/bin/virtualenv: No such file or directory
+./install-deps.sh: line 312: /home/zevin/ceph-src/ceph/install-deps-python2.7/bin/activate: No such file or directory
+ipaserver 4.5.4 requires dbus-python, which is not installed.
+ipaserver 4.5.4 requires dogtag-pki, which is not installed.
+ipaserver 4.5.4 has requirement dnspython>=1.15, but you'll have dnspython 1.12.0 which is incompatible.
+ipapython 4.5.4 has requirement dnspython>=1.15, but you'll have dnspython 1.12.0 which is incompatible.
+Cannot uninstall 'pyparsing'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+
+```
+
+然后决定针对这里的virtualenv等一个个解决.
+
+然后突然一想,如果不需要`./install-deps.sh`都通过,仅把`make -j1`的问题解决了会不会ok.
+然后回到之前
+
+先考虑leveldb版本是否过低.
 经过查找,以及样例.cc的测试,发现并没有过低啊....
 不过还是用新的版本试一下看看
 
@@ -130,26 +153,21 @@ cmake版本又太低了,更新吧
 $ wget https://cmake.org/files/v3.12/cmake-3.12.0.tar.gz
 $ tar xf cmake-3.12.0.tar.gz
 $ ./bootstrap
-
+$ gmake 
+$ sudo make install
 ```
 
-报的错误跟之前`make -j`不一样了哎.这个报的是levelDB的错误.
-之后重新跑`./install-deps.sh`之后:
+然后leveldb编译就过了,但是...
+没有找到所有博客里提到的`libleveldb.so`......
+然后按照博客的节点,`git reset --hard `到了1.20发布的阶段.
+然后编译,顺利得到`.so`
 
-``` text
-$ ./install-deps.sh  1>../outputDeps 2>../outputDepsE
+之后还是`make -j1`还是报相同的错误...把`include/leveldb` 复制到 `/usr/include/leveldb`也不ok,把`libleveldb.so*`复制到`/usr/lib64`也不行,还是那个`undefined reference to leveldb::RepairDB...`的错误.
 
-$ cat ../outputDepsE
-./install-deps.sh: line 307: virtualenv: command not found
-./install-deps.sh: line 308: /home/zevin/ceph-src/ceph/install-deps-python2.7_tmp/bin/pip: No such file or directory
-./install-deps.sh: line 309: /home/zevin/ceph-src/ceph/install-deps-python2.7_tmp/bin/virtualenv: No such file or directory
-./install-deps.sh: line 312: /home/zevin/ceph-src/ceph/install-deps-python2.7/bin/activate: No such file or directory
-ipaserver 4.5.4 requires dbus-python, which is not installed.
-ipaserver 4.5.4 requires dogtag-pki, which is not installed.
-ipaserver 4.5.4 has requirement dnspython>=1.15, but you'll have dnspython 1.12.0 which is incompatible.
-ipapython 4.5.4 has requirement dnspython>=1.15, but you'll have dnspython 1.12.0 which is incompatible.
-Cannot uninstall 'pyparsing'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+## 3. Ceph-deploy安装
 
-```
+在吃饭的时候请教了一下师兄,师兄建议多看看内部wiki,并且建议从ceph-deploy开始入手,之后再手动编译.
 
-然后决定针对这里的virtualenv等一个个解决.
+决定从[Ceph官方文档](http://docs.ceph.com/docs/master/start/)入手.
+
+参考[PREFLIGHT CHECKLIST](http://docs.ceph.org.cn/start/quick-start-preflight/#rpm)进行环境的准备.
