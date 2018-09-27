@@ -171,3 +171,6 @@ $ sudo make install
 决定从[Ceph官方文档](http://docs.ceph.com/docs/master/start/)入手.
 
 参考[PREFLIGHT CHECKLIST](http://docs.ceph.org.cn/start/quick-start-preflight/#rpm)进行环境的准备.
+
+然后顺利进入到[quick-ceph-deploy](http://docs.ceph.org.cn/start/quick-ceph-deploy/)中.
+在这里进入到[网络配置参考](http://docs.ceph.org.cn/rados/configuration/network-config-ref/)中,头大.
