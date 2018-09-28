@@ -4,9 +4,15 @@
 
 ## 1. 节点分配
 
-gpu集群: 0,9,10,17,18
+gpu集群: 0,9,10,17,18. 其中:
 
-其中,9作为monitor,mds,进行ceph-deploy等部署,10作为client;0,17,18作为osd.
+| nodes | 功能 |
+|:------|:-----|
+|0      |osd1, osd2|
+|9      |mon, osd0|
+|10     |mds|
+|17     |client|
+|18     |mds / client|
 
 ## 2. 编译安装ceph
 
@@ -174,3 +180,6 @@ $ sudo make install
 
 然后顺利进入到[quick-ceph-deploy](http://docs.ceph.org.cn/start/quick-ceph-deploy/)中.
 在这里进入到[网络配置参考](http://docs.ceph.org.cn/rados/configuration/network-config-ref/)中,头大.
+然后对于这个网络配置,决定一开始以上手ceph-deploy为主,另外因为我们主要是metadata的操作,所以mds和osd之间的数据传输要求比较小,所以就简单设置吧.
+(不额外设置了hhh)
+
